@@ -31,19 +31,6 @@ public class UsuarioModel
 
 		return usuarios;
 	}
-	static Usuario login(Connection connection, String email, String senha) throws SQLException, Exception
-	{
-		PreparedStatement st;
-		Exception exception = new Exception("UsuarioInvalido");
-		st = connection.prepareStatement("select * from usuarios where usuarios.email = ? and usuarios.senha = ?");
-		st.setString(1, email);
-		st.setString(2, senha);
-		ResultSet r = st.executeQuery();
-		if(r.getString(1).equals(null))
-			throw exception;
-		Usuario u = new Usuario(r.getInt(1), r.getString(2), r.getString(3), r.getString(3));
-		return u;
-	}
 
 
 }

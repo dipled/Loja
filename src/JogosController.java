@@ -42,7 +42,7 @@ public class JogosController
 		System.out.println();
 	}
 
-	void listarItens(Connection connection) throws SQLException
+	void listarJogos(Connection connection) throws SQLException
 	{
 		HashSet jogos = JogosModel.listAll(connection);
 		Iterator<Jogo> iterator = jogos.iterator();
@@ -54,4 +54,5 @@ public class JogosController
 			System.out.println(iterator.next().toString());
 		}
 	}
+
 }

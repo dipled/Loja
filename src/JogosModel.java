@@ -37,5 +37,21 @@ public class JogosModel
 
 		return jogos;
 	}
+	static HashSet listAllFromDeveloper(Connection connection, Desenvolvedor dev) throws SQLException
+	{
+		PreparedStatement statement;
+		HashSet jogos = new HashSet();
 
+		statement = connection.prepareStatement("SELECT * FROM jogos where jogos.desenvolvedor = ?");
+		ResultSet result = statement.executeQuery();
+		
+		while(result.next())
+		{
+			jogos.add(new Jogo(result.getInt(1), result.getInt(2), result.getString(3), 
+            result.getString(4), result.getFloat(5), result.getFloat(6), result.getFloat(7), 
+            result.getInt(8)));
+		}
+
+		return jogos;
+	}
 }

@@ -38,12 +38,4 @@ public class UsuariosController
             System.out.println(iterator.next().toString());
         }
     }
-    Usuario login(Connection connection) throws SQLException, Exception
-    {
-        System.out.println("Digite seu email");
-        String email = input.nextLine();
-        System.out.println("Digite sua senha");
-        String senha = input.nextLine();
-        return UsuarioModel.login(connection, email,senha);
-    }
 }
