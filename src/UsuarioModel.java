@@ -15,10 +15,10 @@ public class UsuarioModel
 		statement.close();
 	}
 
-    static HashSet listAll(Connection connection) throws SQLException
+    static ArrayList<Usuario> listAll(Connection connection) throws SQLException
 	{
 		Statement statement;
-		HashSet usuarios = new HashSet();
+		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
 		statement = connection.createStatement();
 		String sql = "SELECT * FROM jogos";

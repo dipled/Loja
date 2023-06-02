@@ -3,8 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Jogo
-{
+public class Jogo {
     private int id;
     private int desenvolvedor;
     private String titulo;
@@ -15,8 +14,8 @@ public class Jogo
     private int ano;
     private List<Avaliacao> avaliacoes = new ArrayList<>();
 
-    public Jogo(int id, int desenvolvedor, String titulo, String descricao, float preco, float desconto,float nota, int ano) 
-    {    
+    public Jogo(int id, int desenvolvedor, String titulo, String descricao, float preco, float desconto, float nota,
+            int ano) {
         this.id = id;
         this.desenvolvedor = desenvolvedor;
         this.titulo = titulo;
@@ -26,46 +25,44 @@ public class Jogo
         this.nota = nota;
         this.ano = ano;
     }
-    
-        public Jogo(int desenvolvedor, String titulo, String descricao, float preco, float desconto,float nota, int ano) {
-            this.desenvolvedor = desenvolvedor;
-            this.titulo = titulo;
-            this.descricao = descricao;
-            this.preco = preco;
-            this.desconto = desconto;
-            this.nota = nota;
-            this.ano = ano;
-        }
-    public Jogo()
-    {
+
+    public Jogo(int desenvolvedor, String titulo, String descricao, float preco, float desconto, float nota, int ano) {
+        this.desenvolvedor = desenvolvedor;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.desconto = desconto;
+        this.nota = nota;
+        this.ano = ano;
+    }
+
+    public Jogo() {
 
     }
-    
-    public int getId()
-    {
+
+    public int getId() {
         return this.id;
     }
-    public void setId(int id)
-    {
+
+    public void setId(int id) {
         this.id = id;
     }
-    public void adicionaAvaliacao(Avaliacao a)
-    {
+
+    public void adicionaAvaliacao(Avaliacao a) {
         this.avaliacoes.add(a);
         this.calculaNota();
-    
 
     }
-    public void calculaNota()
-    {
+
+    public void calculaNota() {
         float nota = 0;
         int numAv = avaliacoes.size();
-        for(int i = 0; i < numAv; i += 1)
-        {
+        for (int i = 0; i < numAv; i += 1) {
             nota += avaliacoes.get(i).getNota();
         }
-        this.setNota(nota/numAv);
+        this.setNota(nota / numAv);
     }
+
     public List<Avaliacao> getAvaliacoes() {
         return this.avaliacoes;
     }
@@ -81,7 +78,6 @@ public class Jogo
     public void setAno(int dia, int mes, int ano) {
         this.ano = ano;
     }
-
 
     public String getTitulo() {
         return this.titulo;
@@ -100,7 +96,7 @@ public class Jogo
     }
 
     public float getPreco() {
-        return this.preco - (this.preco * this.desconto/100);
+        return this.preco - (this.preco * this.desconto / 100);
     }
 
     public void setPreco(float preco) {
@@ -131,10 +127,8 @@ public class Jogo
         this.desconto = desconto;
     }
 
-    public Jogo getJogo(String titulo)
-    {
-        if(this.titulo == titulo)
-        {
+    public Jogo getJogo(String titulo) {
+        if (this.titulo == titulo) {
             Jogo nJogo = new Jogo();
             nJogo.titulo = this.titulo;
             nJogo.descricao = this.descricao;
@@ -143,12 +137,11 @@ public class Jogo
             nJogo.desconto = this.desconto;
             nJogo.nota = this.nota;
             return nJogo;
-        }
-        else
-        {
+        } else {
             return null;
         }
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -160,5 +153,20 @@ public class Jogo
         Jogo other = (Jogo) obj;
         return Objects.equals(this.titulo, other.titulo);
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", desenvolvedor='" + getDesenvolvedor() + "'" +
+            ", titulo='" + getTitulo() + "'" +
+            ", descricao='" + getDescricao() + "'" +
+            ", preco='" + getPreco() + "'" +
+            ", desconto='" + getDesconto() + "'" +
+            ", nota='" + getNota() + "'" +
+            ", ano='" + getAno() + "'" +
+            ", avaliacoes='" + getAvaliacoes() + "'" +
+            "}";
     }
 
+}

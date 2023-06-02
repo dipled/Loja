@@ -95,4 +95,15 @@ public class Usuario
         Usuario other = (Usuario) obj;
         return this.email == other.email && Objects.equals(this.senha, other.senha);
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", nome='" + getNome() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", senha='" + getSenha() + "'" +
+            "}";
+    }
+
 }

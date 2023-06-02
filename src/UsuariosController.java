@@ -28,7 +28,7 @@ public class UsuariosController
 
     void listarItens(Connection connection) throws SQLException
     {
-        HashSet usuarios = UsuarioModel.listAll(connection);
+        ArrayList<Usuario> usuarios = UsuarioModel.listAll(connection);
         Iterator<Usuario> iterator = usuarios.iterator();
 
         System.out.println();
