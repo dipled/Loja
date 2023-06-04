@@ -16,7 +16,6 @@ CREATE TABLE jogos
 	titulo varchar(50) unique,
 	descricao varchar(300),
 	preco float,
-	desconto float,
 	ano integer,
 	primary key(id),
 	foreign key(desenvolvedor) references desenvolvedores(id)

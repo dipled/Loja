@@ -9,26 +9,25 @@ public class Jogo {
     private String titulo;
     private String descricao;
     private float preco;
-    private float desconto;
     private int ano;
 
-    public Jogo(int id, int desenvolvedor, String titulo, String descricao, float preco, float desconto,
+    public Jogo(int id, int desenvolvedor, String titulo, String descricao, float preco, 
             int ano) {
         this.id = id;
         this.desenvolvedor = desenvolvedor;
         this.titulo = titulo;
         this.descricao = descricao;
         this.preco = preco;
-        this.desconto = desconto;
+    
         this.ano = ano;
     }
 
-    public Jogo(int desenvolvedor, String titulo, String descricao, float preco, float desconto,int ano) {
+    public Jogo(int desenvolvedor, String titulo, String descricao, float preco, int ano) {
         this.desenvolvedor = desenvolvedor;
         this.titulo = titulo;
         this.descricao = descricao;
         this.preco = preco;
-        this.desconto = desconto;
+    
         this.ano = ano;
     }
 
@@ -69,7 +68,7 @@ public class Jogo {
     }
 
     public float getPreco() {
-        return this.preco - (this.preco * this.desconto / 100);
+        return this.preco;
     }
 
     public void setPreco(float preco) {
@@ -84,13 +83,6 @@ public class Jogo {
         this.desenvolvedor = desenvolvedor;
     }
 
-    public float getDesconto() {
-        return this.desconto;
-    }
-
-    public void setDesconto(float desconto) {
-        this.desconto = desconto;
-    }
 
     public Jogo getJogo(String titulo) {
         if (this.titulo == titulo) {
@@ -99,7 +91,6 @@ public class Jogo {
             nJogo.descricao = this.descricao;
             nJogo.preco = this.preco;
             nJogo.desenvolvedor = this.desenvolvedor;
-            nJogo.desconto = this.desconto;
             return nJogo;
         } else {
             return null;
@@ -126,7 +117,6 @@ public class Jogo {
             ", titulo='" + getTitulo() + "'" +
             ", descricao='" + getDescricao() + "'" +
             ", preco='" + getPreco() + "'" +
-            ", desconto='" + getDesconto() + "'" +
             ", ano='" + getAno() + "'" +
             "}";
     }

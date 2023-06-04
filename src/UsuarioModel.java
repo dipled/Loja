@@ -33,15 +33,6 @@ public class UsuarioModel
 
 		return usuarios;
 	}
-	static String listNomeId(Connection connection, int idU) throws SQLException
-	{
-		PreparedStatement st = connection.prepareStatement("select nome from usuarios where id = ?");
-		st.setInt(1, idU);
-		ResultSet r = st.executeQuery();
-		if(!r.next())
-			return null;
-		return r.getString(1);
-	}
 	static Usuario login(String email, String senha, Connection connection) throws SQLException
 	{
 		PreparedStatement st;
@@ -76,7 +67,7 @@ public class UsuarioModel
 	{
 		Avaliacao aval = new Avaliacao();
 		PreparedStatement st;
-		st = connection.prepareStatement("select avaliacao, nota, user_id from avaliacoes where jogo_id = ?");
+		st = connection.prepareStatement("select avaliacao, nota, nome from (avaliacoes join usuarios on avaliacoes.user_id = usuarios.id) where jogo_id = ?");
 		st.setInt(1, idJ);
 		ResultSet r = st.executeQuery();
 		String avali = "\n";
@@ -87,7 +78,7 @@ public class UsuarioModel
 			float nota = r.getFloat(2);
 			notaSum += nota;
 			c += 1;
-			avali += listNomeId(connection, r.getInt(3)) + ": "+  r.getString(1) + ". Nota: "+ String.valueOf(nota) +"\n";
+			avali += r.getString(3) + ": "+  r.getString(1) + ". Nota: "+ String.valueOf(nota) +"\n";
 		}
 		aval.setAvaliacoes(avali);
 		aval.setNota(notaSum/c);

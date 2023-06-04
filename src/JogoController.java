@@ -31,7 +31,7 @@ public class JogoController
 		int ano = Integer.parseInt(input.nextLine()); 
         
 		
-		Jogo jogo = new Jogo(desenvolvedor, nome, descricao, preco,desconto,ano);
+		Jogo jogo = new Jogo(desenvolvedor, nome, descricao, preco,ano);
 		JogoModel.create(jogo, connection);
 
 		System.out.println();

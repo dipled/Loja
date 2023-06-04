@@ -7,13 +7,12 @@ public class JogoModel
 	{
 		PreparedStatement statement;
 
-		statement = connection.prepareStatement("INSERT INTO jogos (desenvolvedor, titulo, descricao, preco, desconto, ano) VALUES (?, ?, ?, ?, ?, ?)");
+		statement = connection.prepareStatement("INSERT INTO jogos (desenvolvedor, titulo, descricao, preco, ano) VALUES (?, ?, ?, ?, ?)");
 		statement.setInt(1, jogo.getDesenvolvedor());
 		statement.setString(2, jogo.getTitulo());
         statement.setString(3,jogo.getDescricao());
         statement.setFloat(4, jogo.getPreco());
-        statement.setFloat(5,jogo.getDesconto());
-        statement.setInt(6,jogo.getAno());
+        statement.setInt(5,jogo.getAno());
 		statement.execute();
 		statement.close();
 	}
@@ -30,8 +29,8 @@ public class JogoModel
 		while(result.next())
 		{
 			jogos.add(new Jogo(result.getInt(1), result.getInt(2), result.getString(3), 
-            result.getString(4), result.getFloat(5), result.getFloat(6), 
-            result.getInt(7)));
+            result.getString(4), result.getFloat(5),
+            result.getInt(6)));
 		}
 
 		return jogos;
@@ -48,8 +47,8 @@ public class JogoModel
 		while(result.next())
 		{
 			jogos.add(new Jogo(result.getInt(1), result.getInt(2), result.getString(3), 
-            result.getString(4), result.getFloat(5), result.getFloat(6),
-            result.getInt(7)));
+            result.getString(4), result.getFloat(5),
+            result.getInt(6)));
 		}
 
 		return jogos;
@@ -66,8 +65,8 @@ public class JogoModel
 		while(result.next())
 		{
 			jogos.add(new Jogo(result.getInt(1), result.getInt(2), result.getString(3), 
-            result.getString(4), result.getFloat(5), result.getFloat(6), 
-            result.getInt(7)));
+            result.getString(4), result.getFloat(5), 
+            result.getInt(6)));
 		}
 
 		return jogos;
