@@ -59,30 +59,6 @@ public class Usuario
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    // private List<Jogo> biblioteca = new ArrayList<>();
-    // private List<Avaliacao> avaliacoes = new ArrayList<>();
-
-    // public void adicionaAvaliacao(Avaliacao a)
-    // {
-    //     this.avaliacoes.add(a);
-    // }
-
-    // public List<Avaliacao> getAvaliacoes() {
-    //     return this.avaliacoes;
-    // }
-
-    // public void setAvaliacoes(List<Avaliacao> avaliacoes) {
-    //     this.avaliacoes = avaliacoes;
-    // }
-
-    // public List<Jogo> getBiblioteca() {
-    //     return this.biblioteca;
-    // }
-
-    // public void setBiblioteca(List<Jogo> biblioteca) {
-    //     this.biblioteca = biblioteca;
-    // }
 
     @Override
     public boolean equals(Object obj) {

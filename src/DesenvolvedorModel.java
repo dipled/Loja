@@ -1,7 +1,7 @@
 import java.sql.*;
 import java.util.*;
 
-public class DesenvolvedoresModel 
+public class DesenvolvedorModel 
 {
     static void create(Desenvolvedor desenvolvedor, Connection connection) throws SQLException   
     {
@@ -16,10 +16,10 @@ public class DesenvolvedoresModel
 		statement.close();
     } 
 
-    static HashSet listAll(Connection connection) throws SQLException
+    static HashSet<Desenvolvedor> listAll(Connection connection) throws SQLException
     {
         Statement statement;
-        HashSet desenvolvedores = new HashSet();
+        HashSet<Desenvolvedor> desenvolvedores = new HashSet<Desenvolvedor>();
 
         statement = connection.createStatement();
         String sql = "SELECT * FROM desenvolvedores";

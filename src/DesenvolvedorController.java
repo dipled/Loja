@@ -2,7 +2,7 @@ import java.sql.*;
 import java.text.*;
 import java.util.*;
 
-public class DesenvolvedoresController {
+public class DesenvolvedorController {
     
     public static Scanner input = new Scanner(System.in);
 
@@ -24,14 +24,14 @@ public class DesenvolvedoresController {
 		String cnpj = input.nextLine();
         
         Desenvolvedor desenvolvedor = new Desenvolvedor(nome, telefone, endereco, cnpj);
-        DesenvolvedoresModel.create(desenvolvedor, connection);
+        DesenvolvedorModel.create(desenvolvedor, connection);
 
         System.out.println("\nDesenvolvedor crido com sucesso!\n");
     }
 
     void listarItens(Connection connection) throws SQLException
     {
-        HashSet desenvolvedores = DesenvolvedoresModel.listAll(connection);
+        HashSet<Desenvolvedor> desenvolvedores = DesenvolvedorModel.listAll(connection);
         Iterator<Desenvolvedor> iterator = desenvolvedores.iterator();
 
         System.out.println();

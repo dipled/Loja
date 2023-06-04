@@ -10,11 +10,9 @@ public class Jogo {
     private String descricao;
     private float preco;
     private float desconto;
-    private float nota;
     private int ano;
-    private List<Avaliacao> avaliacoes = new ArrayList<>();
 
-    public Jogo(int id, int desenvolvedor, String titulo, String descricao, float preco, float desconto, float nota,
+    public Jogo(int id, int desenvolvedor, String titulo, String descricao, float preco, float desconto,
             int ano) {
         this.id = id;
         this.desenvolvedor = desenvolvedor;
@@ -22,17 +20,15 @@ public class Jogo {
         this.descricao = descricao;
         this.preco = preco;
         this.desconto = desconto;
-        this.nota = nota;
         this.ano = ano;
     }
 
-    public Jogo(int desenvolvedor, String titulo, String descricao, float preco, float desconto, float nota, int ano) {
+    public Jogo(int desenvolvedor, String titulo, String descricao, float preco, float desconto,int ano) {
         this.desenvolvedor = desenvolvedor;
         this.titulo = titulo;
         this.descricao = descricao;
         this.preco = preco;
         this.desconto = desconto;
-        this.nota = nota;
         this.ano = ano;
     }
 
@@ -46,29 +42,6 @@ public class Jogo {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void adicionaAvaliacao(Avaliacao a) {
-        this.avaliacoes.add(a);
-        this.calculaNota();
-
-    }
-
-    public void calculaNota() {
-        float nota = 0;
-        int numAv = avaliacoes.size();
-        for (int i = 0; i < numAv; i += 1) {
-            nota += avaliacoes.get(i).getNota();
-        }
-        this.setNota(nota / numAv);
-    }
-
-    public List<Avaliacao> getAvaliacoes() {
-        return this.avaliacoes;
-    }
-
-    public void setAvaliacoes(List<Avaliacao> avaliacoes) {
-        this.avaliacoes = avaliacoes;
     }
 
     public int getAno() {
@@ -111,14 +84,6 @@ public class Jogo {
         this.desenvolvedor = desenvolvedor;
     }
 
-    public float getNota() {
-        return this.nota;
-    }
-
-    public void setNota(float nota) {
-        this.nota = nota;
-    }
-
     public float getDesconto() {
         return this.desconto;
     }
@@ -135,7 +100,6 @@ public class Jogo {
             nJogo.preco = this.preco;
             nJogo.desenvolvedor = this.desenvolvedor;
             nJogo.desconto = this.desconto;
-            nJogo.nota = this.nota;
             return nJogo;
         } else {
             return null;
@@ -163,9 +127,7 @@ public class Jogo {
             ", descricao='" + getDescricao() + "'" +
             ", preco='" + getPreco() + "'" +
             ", desconto='" + getDesconto() + "'" +
-            ", nota='" + getNota() + "'" +
             ", ano='" + getAno() + "'" +
-            ", avaliacoes='" + getAvaliacoes() + "'" +
             "}";
     }
 

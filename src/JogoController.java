@@ -2,7 +2,7 @@ import java.sql.*;
 import java.text.*;
 import java.util.*;
 
-public class JogosController
+public class JogoController
 {
 	public static Scanner input = new Scanner(System.in);
 
@@ -12,7 +12,7 @@ public class JogosController
 		System.out.println("Insira os seguintes dados para a criar um novo jogo: ");
 		System.out.println();
 
-        System.out.println("Desenvolvedor: ");
+        System.out.println("Id do desenvolvedor: ");
         int desenvolvedor = Integer.parseInt(input.nextLine());
 
 		System.out.print("Titulo: ");
@@ -27,15 +27,12 @@ public class JogosController
         System.out.print("Desconto: ");
 		float desconto = Float.parseFloat(input.nextLine());
 
-        System.out.print("Nota: ");
-		float nota = Float.parseFloat(input.nextLine());
-
         System.out.print("Ano: ");
 		int ano = Integer.parseInt(input.nextLine()); 
         
 		
-		Jogo jogo = new Jogo(desenvolvedor, nome, descricao, preco,desconto,nota,ano);
-		JogosModel.create(jogo, connection);
+		Jogo jogo = new Jogo(desenvolvedor, nome, descricao, preco,desconto,ano);
+		JogoModel.create(jogo, connection);
 
 		System.out.println();
 		System.out.println("jogo criado com sucesso!");
@@ -44,7 +41,7 @@ public class JogosController
 
 	void listarJogos(Connection connection) throws SQLException
 	{
-		HashSet jogos = JogosModel.listAll(connection);
+		HashSet<Jogo> jogos = JogoModel.listAll(connection);
 		Iterator<Jogo> iterator = jogos.iterator();
 		
 		System.out.println();
@@ -54,5 +51,30 @@ public class JogosController
 			System.out.println(iterator.next().toString());
 		}
 	}
+	void listarDosDesenvolvedores(Connection connection) throws SQLException
+	{
+		System.out.println("Digite o id do desenvolvedor desejado");
+		int id = Integer.parseInt(input.nextLine());
+		HashSet<Jogo> jogos = JogoModel.listAllFromDeveloper(connection, id);
+		Iterator<Jogo> iterator = jogos.iterator();
+		
+		System.out.println();
 
+		while(iterator.hasNext())
+		{
+			System.out.println(iterator.next().toString());
+		}
+	}
+	void listarDoUsuario(Connection connection, int id) throws SQLException
+	{
+		HashSet<Jogo> jogos = JogoModel.listAllFromUser(connection, id);
+		Iterator<Jogo> iterator = jogos.iterator();
+		
+		System.out.println();
+
+		while(iterator.hasNext())
+		{
+			System.out.println(iterator.next().toString());
+		}
+	}
 }

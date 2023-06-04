@@ -66,4 +66,15 @@ public class Desenvolvedor
         this.cnpj = cnpj;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", nome='" + getNome() + "'" +
+            ", telefone='" + getTelefone() + "'" +
+            ", endereco='" + getEndereco() + "'" +
+            ", cnpj='" + getCnpj() + "'" +
+            "}";
+    }
+
 }

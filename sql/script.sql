@@ -17,7 +17,6 @@ CREATE TABLE jogos
 	descricao varchar(300),
 	preco float,
 	desconto float,
-	nota float,
 	ano integer,
 	primary key(id),
 	foreign key(desenvolvedor) references desenvolvedores(id)
@@ -41,9 +40,6 @@ CREATE TABLE avaliacoes
 	avaliacao varchar(250),
 	user_id integer references usuarios(id),
 	jogo_id integer references jogos(id),
-	nota integer,
+	nota float,
 	primary key (user_id,jogo_id)
 )
-select * from desenvolvedores
-select * from jogos
-select * from usuarios

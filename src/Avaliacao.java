@@ -1,9 +1,19 @@
-
-
-public class Avaliacao
-{
+public class Avaliacao {
+    private String avaliacoes;
     private float nota;
-    private String texto;
+
+    public Avaliacao(String avaliacoes, float nota) {
+        this.avaliacoes = avaliacoes;
+        this.nota = nota;
+    }
+
+    public String getAvaliacoes() {
+        return this.avaliacoes;
+    }
+
+    public void setAvaliacoes(String avaliacoes) {
+        this.avaliacoes = avaliacoes;
+    }
 
     public float getNota() {
         return this.nota;
@@ -13,11 +23,7 @@ public class Avaliacao
         this.nota = nota;
     }
 
-    public String getTexto() {
-        return this.texto;
+    public Avaliacao() {
     }
 
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
 }
