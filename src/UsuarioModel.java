@@ -55,6 +55,16 @@ public class UsuarioModel
 	}
 	static void avaliar (int idU, int idJ, float nota, String aval, Connection connection) throws SQLException
 	{
+		PreparedStatement st1;
+		st1 = connection.prepareStatement("select * from biblioteca where user_id = ? and jogo_id = ?");
+		st1.setInt(1, idU);
+		st1.setInt(2, idJ);
+		ResultSet r = st1.executeQuery();
+		if(!r.next())
+		{
+			System.out.println("Erro, voce nao possui esse jogo");
+			return;
+		}
 		PreparedStatement st;
 		st = connection.prepareStatement("insert into avaliacoes (avaliacao, user_id, jogo_id, nota) values (?,?,?,?)");
 		st.setString(1,aval);

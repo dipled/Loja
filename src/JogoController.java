@@ -24,9 +24,6 @@ public class JogoController
         System.out.print("Preco: ");
 		float preco = Float.parseFloat(input.nextLine());
 
-        System.out.print("Desconto: ");
-		float desconto = Float.parseFloat(input.nextLine());
-
         System.out.print("Ano: ");
 		int ano = Integer.parseInt(input.nextLine()); 
         

@@ -23,7 +23,7 @@ public class JogoModel
 		HashSet<Jogo> jogos = new HashSet<Jogo>();
 
 		statement = connection.createStatement();
-		String sql = "SELECT id, desenvolvedor, titulo, descricao, preco, desconto, ano FROM jogos";
+		String sql = "SELECT id, desenvolvedor, titulo, descricao, preco, ano FROM jogos";
 		ResultSet result = statement.executeQuery(sql);
 		
 		while(result.next())

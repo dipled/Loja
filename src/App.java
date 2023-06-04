@@ -44,6 +44,7 @@ public class App {
                             jg.listarDosDesenvolvedores(connection);
                             break;
                         case 3:
+                            jg.listarJogos(connection);
                             us.comprar(connection, u.getId());
                             break;
                         case 4:
