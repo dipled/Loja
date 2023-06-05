@@ -56,7 +56,7 @@ public class UsuarioModel
 	static void avaliar (int idU, int idJ, float nota, String aval, Connection connection) throws SQLException
 	{
 		PreparedStatement st1;
-		st1 = connection.prepareStatement("select * from biblioteca where user_id = ? and jogo_id = ?");
+		st1 = connection.prepareStatement("select * from biblioteca where user_id = ? and jogo_id = ? order by jogo_id");
 		st1.setInt(1, idU);
 		st1.setInt(2, idJ);
 		ResultSet r = st1.executeQuery();
@@ -77,7 +77,7 @@ public class UsuarioModel
 	{
 		Avaliacao aval = new Avaliacao();
 		PreparedStatement st;
-		st = connection.prepareStatement("select avaliacao, nota, nome from (avaliacoes join usuarios on avaliacoes.user_id = usuarios.id) where jogo_id = ?");
+		st = connection.prepareStatement("select avaliacao, nota, nome from (avaliacoes join usuarios on avaliacoes.user_id = usuarios.id) where jogo_id = ? order by nome");
 		st.setInt(1, idJ);
 		ResultSet r = st.executeQuery();
 		String avali = "\n";

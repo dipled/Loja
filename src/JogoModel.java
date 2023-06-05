@@ -23,7 +23,7 @@ public class JogoModel
 		HashSet<Jogo> jogos = new HashSet<Jogo>();
 
 		statement = connection.createStatement();
-		String sql = "SELECT id, desenvolvedor, titulo, descricao, preco, ano FROM jogos";
+		String sql = "SELECT id, desenvolvedor, titulo, descricao, preco, ano FROM jogos order by id";
 		ResultSet result = statement.executeQuery(sql);
 		
 		while(result.next())
@@ -40,7 +40,7 @@ public class JogoModel
 		PreparedStatement statement;
 		HashSet<Jogo> jogos = new HashSet<Jogo>();
 
-		statement = connection.prepareStatement("SELECT * FROM jogos where jogos.desenvolvedor = ?");
+		statement = connection.prepareStatement("SELECT * FROM jogos where jogos.desenvolvedor = ? order by id");
 		statement.setInt(1,id);
 		ResultSet result = statement.executeQuery();
 		
@@ -58,7 +58,7 @@ public class JogoModel
 		PreparedStatement statement;
 		HashSet<Jogo> jogos = new HashSet<Jogo>();
 
-		statement = connection.prepareStatement("SELECT * FROM jogos where id in (select jogo_id from biblioteca where user_id = ?)");
+		statement = connection.prepareStatement("SELECT * FROM jogos where id in (select jogo_id from biblioteca where user_id = ?) order by id");
 		statement.setInt(1,id);
 		ResultSet result = statement.executeQuery();
 		

@@ -22,7 +22,7 @@ public class DesenvolvedorModel
         HashSet<Desenvolvedor> desenvolvedores = new HashSet<Desenvolvedor>();
 
         statement = connection.createStatement();
-        String sql = "SELECT * FROM desenvolvedores";
+        String sql = "SELECT * FROM desenvolvedores order by id";
         ResultSet result = statement.executeQuery(sql);
 
         while(result.next())
