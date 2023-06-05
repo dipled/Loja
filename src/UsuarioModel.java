@@ -77,16 +77,12 @@ public class UsuarioModel
 	{
 		Avaliacao aval = new Avaliacao();
 		PreparedStatement st;
-		st = connection.prepareStatement("select avaliacao, nota, nome from (avaliacoes join usuarios on avaliacoes.user_id = usuarios.id) where jogo_id = ? order by nome");
+		st = connection.prepareStatement("select avaliacao, nota, nome from (avaliacoes join usuarios on avaliacoes.user_id = usuarios.id) where jogo_id = ?");
 		st.setInt(1, idJ);
 		ResultSet r = st.executeQuery();
 		String avali = "\n";
 		float notaSum = 0;
 		int c = 0;
-		if(!r.next())
-		{
-		 return null;
-		}
 		while(r.next())
 		{
 			float nota = r.getFloat(2);
@@ -98,4 +94,5 @@ public class UsuarioModel
 		aval.setNota(notaSum/c);
 		return aval;
 	}
+
 }

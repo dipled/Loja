@@ -55,7 +55,11 @@ public class App {
                             break;
                         case 5:
                             jg.listarDoUsuario(connection, u.getId());
-                            us.avaliar(connection, u.getId());
+                            try{us.avaliar(connection, u.getId());}
+                            catch(SQLException e)
+                            {
+                                System.out.println("Erro ao avaliar");
+                            }
                             break;
                         case 6:
                             jg.listarJogos(connection);
