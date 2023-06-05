@@ -68,6 +68,10 @@ public class UsuarioController
         System.out.println("Digite o id do jogo que deseja");
         int idJ = Integer.parseInt(input.nextLine());
         Avaliacao aval = UsuarioModel.mostrarAvaliacoes(idJ, connection);
+        if(aval == null)
+        {
+            System.out.println("Jogo invalido"); return;
+        }
         System.out.println("Avaliacoes: "+aval.getAvaliacoes());
         System.out.println("Nota media: "+String.valueOf(aval.getNota()));
     }

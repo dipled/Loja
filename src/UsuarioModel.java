@@ -83,6 +83,10 @@ public class UsuarioModel
 		String avali = "\n";
 		float notaSum = 0;
 		int c = 0;
+		if(!r.next())
+		{
+		 return null;
+		}
 		while(r.next())
 		{
 			float nota = r.getFloat(2);

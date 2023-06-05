@@ -45,8 +45,11 @@ public class App {
                             break;
                         case 3:
                             jg.listarJogos(connection);
-                            us.comprar(connection, u.getId());
-                            break;
+                            try {
+                                us.comprar(connection, u.getId());
+                            } catch (SQLException e) {
+                                System.out.println("Erro ao comprar o jogo");
+                            }break;
                         case 4:
                             jg.listarDoUsuario(connection, u.getId());
                             break;
@@ -84,14 +87,27 @@ public class App {
                 case 0:
                     return;
                 case 1:
-                    dv.createDesenvolvedor(connection);
+                    try {
+                        dv.createDesenvolvedor(connection);
+                    } catch (SQLException e) {
+                        System.out.println("Erro ao cadastrar desenvolvedor");
+                    }
                     break;
                 case 2:
                     dv.listarItens(connection);
-                    jg.createjogo(connection);
+                    try {
+                        jg.createjogo(connection);
+                    } catch (SQLException e) {
+                        System.out.println("Erro ao cadastrar jogo");
+                    }
                     break;
                 case 3:
-                    us.createUsuario(connection);
+                    try {
+                        us.createUsuario(connection);
+                    } catch (SQLException e) {
+                        System.out.println("Erro ao cadastrar usuario");
+                    }
+
                     break;
                 case 4:
                     dv.listarItens(connection);
