@@ -17,13 +17,13 @@ public class JogoModel
 		statement.close();
 	}
 
-	static HashSet<Jogo> listAll(Connection connection) throws SQLException
+	static ArrayList<Jogo> listAll(Connection connection) throws SQLException
 	{
 		Statement statement;
-		HashSet<Jogo> jogos = new HashSet<Jogo>();
+		ArrayList<Jogo> jogos = new ArrayList<Jogo>();
 
 		statement = connection.createStatement();
-		String sql = "SELECT id, desenvolvedor, titulo, descricao, preco, ano FROM jogos order by id";
+		String sql = "SELECT id, desenvolvedor, titulo, descricao, preco, ano FROM jogos group by desenvolvedor, id";
 		ResultSet result = statement.executeQuery(sql);
 		
 		while(result.next())
@@ -35,12 +35,12 @@ public class JogoModel
 
 		return jogos;
 	}
-	static HashSet<Jogo> listAllFromDeveloper(Connection connection, int id) throws SQLException
+	static ArrayList<Jogo> listAllFromDeveloper(Connection connection, int id) throws SQLException
 	{
 		PreparedStatement statement;
-		HashSet<Jogo> jogos = new HashSet<Jogo>();
+		ArrayList<Jogo> jogos = new ArrayList<Jogo>();
 
-		statement = connection.prepareStatement("SELECT * FROM jogos where jogos.desenvolvedor = ? order by id");
+		statement = connection.prepareStatement("SELECT * FROM jogos where jogos.desenvolvedor = ? order by desenvolvedor");
 		statement.setInt(1,id);
 		ResultSet result = statement.executeQuery();
 		
@@ -53,12 +53,12 @@ public class JogoModel
 
 		return jogos;
 	}
-	static HashSet<Jogo> listAllFromUser(Connection connection, int id) throws SQLException
+	static ArrayList<Jogo> listAllFromUser(Connection connection, int id) throws SQLException
 	{
 		PreparedStatement statement;
-		HashSet<Jogo> jogos = new HashSet<Jogo>();
+		ArrayList<Jogo> jogos = new ArrayList<Jogo>();
 
-		statement = connection.prepareStatement("SELECT * FROM jogos where id in (select jogo_id from biblioteca where user_id = ?) order by id");
+		statement = connection.prepareStatement("SELECT * FROM jogos where id in (select jogo_id from biblioteca where user_id = ?) order by desenvolvedor");
 		statement.setInt(1,id);
 		ResultSet result = statement.executeQuery();
 		

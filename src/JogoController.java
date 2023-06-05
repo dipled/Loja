@@ -38,7 +38,7 @@ public class JogoController
 
 	void listarJogos(Connection connection) throws SQLException
 	{
-		HashSet<Jogo> jogos = JogoModel.listAll(connection);
+		ArrayList<Jogo> jogos = JogoModel.listAll(connection);
 		Iterator<Jogo> iterator = jogos.iterator();
 		
 		System.out.println();
@@ -52,7 +52,7 @@ public class JogoController
 	{
 		System.out.println("Digite o id do desenvolvedor desejado");
 		int id = Integer.parseInt(input.nextLine());
-		HashSet<Jogo> jogos = JogoModel.listAllFromDeveloper(connection, id);
+		ArrayList<Jogo> jogos = JogoModel.listAllFromDeveloper(connection, id);
 		Iterator<Jogo> iterator = jogos.iterator();
 		
 		System.out.println();
@@ -64,7 +64,7 @@ public class JogoController
 	}
 	void listarDoUsuario(Connection connection, int id) throws SQLException
 	{
-		HashSet<Jogo> jogos = JogoModel.listAllFromUser(connection, id);
+		ArrayList<Jogo> jogos = JogoModel.listAllFromUser(connection, id);
 		Iterator<Jogo> iterator = jogos.iterator();
 		
 		System.out.println();

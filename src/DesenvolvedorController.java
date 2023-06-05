@@ -31,7 +31,7 @@ public class DesenvolvedorController {
 
     void listarItens(Connection connection) throws SQLException
     {
-        HashSet<Desenvolvedor> desenvolvedores = DesenvolvedorModel.listAll(connection);
+        ArrayList<Desenvolvedor> desenvolvedores = DesenvolvedorModel.listAll(connection);
         Iterator<Desenvolvedor> iterator = desenvolvedores.iterator();
 
         System.out.println();

@@ -16,10 +16,10 @@ public class DesenvolvedorModel
 		statement.close();
     } 
 
-    static HashSet<Desenvolvedor> listAll(Connection connection) throws SQLException
+    static ArrayList<Desenvolvedor> listAll(Connection connection) throws SQLException
     {
         Statement statement;
-        HashSet<Desenvolvedor> desenvolvedores = new HashSet<Desenvolvedor>();
+        ArrayList<Desenvolvedor> desenvolvedores = new ArrayList<Desenvolvedor>();
 
         statement = connection.createStatement();
         String sql = "SELECT * FROM desenvolvedores order by id";
