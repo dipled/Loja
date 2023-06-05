@@ -47,7 +47,7 @@ public class Jogo {
         return this.ano;
     }
 
-    public void setAno(int dia, int mes, int ano) {
+    public void setAno(int ano) {
         this.ano = ano;
     }
 
@@ -84,16 +84,11 @@ public class Jogo {
     }
 
 
-    public Jogo getJogo(String titulo) {
-        if (this.titulo == titulo) {
-            Jogo nJogo = new Jogo();
-            nJogo.titulo = this.titulo;
-            nJogo.descricao = this.descricao;
-            nJogo.preco = this.preco;
-            nJogo.desenvolvedor = this.desenvolvedor;
-            return nJogo;
+    public boolean contemTermo(String titulo) {
+        if (this.titulo.contains(titulo)) {
+            return true;
         } else {
-            return null;
+            return false;
         }
     }
 
