@@ -23,7 +23,7 @@ public class JogoModel
 		ArrayList<Jogo> jogos = new ArrayList<Jogo>();
 
 		statement = connection.createStatement();
-		String sql = "SELECT id, desenvolvedor, titulo, descricao, preco, ano FROM jogos group by desenvolvedor, id";
+		String sql = "SELECT id, desenvolvedor, titulo, descricao, preco, ano FROM jogos order by desenvolvedor";
 		ResultSet result = statement.executeQuery(sql);
 		
 		while(result.next())
