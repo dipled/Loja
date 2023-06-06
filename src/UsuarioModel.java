@@ -81,17 +81,20 @@ public class UsuarioModel
 		st.setInt(1, idJ);
 		ResultSet r = st.executeQuery();
 		String avali = "\n";
-		float notaSum = 0;
-		int c = 0;
 		while(r.next())
 		{
 			float nota = r.getFloat(2);
-			notaSum += nota;
-			c += 1;
+
 			avali += r.getString(3) + ": "+  r.getString(1) + ". Nota: "+ String.valueOf(nota) +"\n";
 		}
+		PreparedStatement st2;
+		st2 = connection.prepareStatement("select avg(nota) from avaliacoes join jogos on jogos.id = avaliacoes.jogo_id where jogos.id = ?");
+		st2.setInt(1, idJ);
+		ResultSet r2 = st2.executeQuery();
+		r2.next();
+		float notaMedia = r2.getFloat(1);
 		aval.setAvaliacoes(avali);
-		aval.setNota(notaSum/c);
+		aval.setNota(notaMedia);
 		return aval;
 	}
 
