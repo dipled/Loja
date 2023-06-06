@@ -38,13 +38,17 @@ public class App {
                             return;
                         case 1:
                             jg.listarJogos(connection);
+                            System.out.println();
                             break;
                         case 2:
                             dv.listarItens(connection);
+                            System.out.println();
                             jg.listarDosDesenvolvedores(connection);
+                            System.out.println();
                             break;
                         case 3:
                             jg.listarJogos(connection);
+                            System.out.println();
                             try {
                                 us.comprar(connection, u.getId());
                             } catch (SQLException e) {
@@ -52,9 +56,11 @@ public class App {
                             }break;
                         case 4:
                             jg.listarDoUsuario(connection, u.getId());
+                            System.out.println();
                             break;
                         case 5:
                             jg.listarDoUsuario(connection, u.getId());
+                            System.out.println();
                             try{us.avaliar(connection, u.getId());}
                             catch(SQLException e)
                             {
@@ -63,7 +69,9 @@ public class App {
                             break;
                         case 6:
                             jg.listarJogos(connection);
+                            System.out.println();
                             us.mostrarAvaliacoes(connection);
+                            System.out.println();
                             break;
                         default:
                             System.out.println("Opcao invalida");
