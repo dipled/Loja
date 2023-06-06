@@ -9,9 +9,9 @@ public class Connect
 	public Connect() throws ClassNotFoundException
 	{
 		String username = "postgres";
-		String password = "admin";
+		String password = "udesc";
 		String driver = "org.postgresql.Driver";
-		String url = "jdbc:postgresql://localhost:5432/loja";
+		String url = "jdbc:postgresql://localhost:5432/postgres";
 
 		try
 		{
