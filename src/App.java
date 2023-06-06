@@ -25,7 +25,8 @@ public class App {
         while (true) {
             u = us.login(connection);
             if (u == null)
-                System.out.println("Erro ao fazer login");
+                {System.out.println("Erro ao fazer login");
+                System.out.println();}
             else {
                 while (true) {
                     System.out.println("Digite:\n0 para sair\t1 para listar os jogos do catalogo\n"
@@ -53,6 +54,7 @@ public class App {
                                 us.comprar(connection, u.getId());
                             } catch (SQLException e) {
                                 System.out.println("Erro ao comprar o jogo");
+                                System.out.println();
                             }break;
                         case 4:
                             jg.listarDoUsuario(connection, u.getId());
@@ -65,6 +67,7 @@ public class App {
                             catch(SQLException e)
                             {
                                 System.out.println("Erro ao avaliar");
+                                System.out.println();
                             }
                             break;
                         case 6:
@@ -74,6 +77,7 @@ public class App {
                             System.out.println();
                             break;
                         default:
+                            System.out.println();
                             System.out.println("Opcao invalida");
                     }
                 }

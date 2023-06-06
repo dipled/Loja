@@ -8,6 +8,7 @@ public class UsuarioController
 
     public void createUsuario(Connection connection) throws SQLException, ParseException
 	{
+        System.out.println();
 		System.out.println("\nInsira os seguintes dados para a criar um novo Usuario: \n");
         
         System.out.println("Nome: ");
@@ -23,6 +24,7 @@ public class UsuarioController
         UsuarioModel.create(usuario, connection);
 
         System.out.println("\nUsuario criado com sucesso\n");
+        System.out.println();
     
     }
 
@@ -37,14 +39,17 @@ public class UsuarioController
         {
             System.out.println(iterator.next().toString());
         }
+        System.out.println();
     }
     Usuario login(Connection connection) throws SQLException
     {
+        System.out.println();
         System.out.println("Digite o email");
         String email = input.nextLine();
         System.out.println("Digite a senha");
         String senha = input.nextLine();
         Usuario r = UsuarioModel.login(email, senha, connection);
+        System.out.println();
         return r;
     }
     void comprar(Connection connection, int idU)throws SQLException
@@ -55,6 +60,7 @@ public class UsuarioController
     }
     void avaliar(Connection connection, int idU) throws SQLException
     {
+        System.out.println();
         System.out.println("Digite o id do jogo que voce deseja avaliar");
         int idJ = Integer.parseInt(input.nextLine());
         System.out.println("Digite a sua avaliacao");
@@ -62,14 +68,17 @@ public class UsuarioController
         System.out.println("Digite a nota");
         float nota = Float.parseFloat(input.nextLine());
         UsuarioModel.avaliar(idU, idJ, nota, aval, connection);
+        System.out.println();
 
     }
     void mostrarAvaliacoes(Connection connection) throws SQLException
     {
+        System.out.println();
         System.out.println("Digite o id do jogo que deseja");
         int idJ = Integer.parseInt(input.nextLine());
         Avaliacao aval = UsuarioModel.mostrarAvaliacoes(idJ, connection);
         System.out.println("Avaliacoes: "+aval.getAvaliacoes());
         System.out.println("Nota media: "+String.valueOf(aval.getNota()));
+        System.out.println();
     }
 }

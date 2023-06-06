@@ -47,9 +47,11 @@ public class JogoController
 		{
 			System.out.println(iterator.next().toString());
 		}
+		System.out.println();
 	}
 	void listarDosDesenvolvedores(Connection connection) throws SQLException
 	{
+		System.out.println();
 		System.out.println("Digite o id do desenvolvedor desejado");
 		int id = Integer.parseInt(input.nextLine());
 		ArrayList<Jogo> jogos = JogoModel.listAllFromDeveloper(connection, id);
@@ -61,6 +63,7 @@ public class JogoController
 		{
 			System.out.println(iterator.next().toString());
 		}
+		System.out.println();
 	}
 	void listarDoUsuario(Connection connection, int id) throws SQLException
 	{
@@ -73,5 +76,6 @@ public class JogoController
 		{
 			System.out.println(iterator.next().toString());
 		}
+		System.out.println();
 	}
 }

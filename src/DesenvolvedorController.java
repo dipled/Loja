@@ -33,12 +33,13 @@ public class DesenvolvedorController {
     {
         ArrayList<Desenvolvedor> desenvolvedores = DesenvolvedorModel.listAll(connection);
         Iterator<Desenvolvedor> iterator = desenvolvedores.iterator();
-
+        System.out.println();
         System.out.println();
 
         while(iterator.hasNext())
         {
             System.out.println(iterator.next().toString());
         }
+        System.out.println();
     }
 }
