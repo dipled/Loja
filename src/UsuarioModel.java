@@ -88,7 +88,7 @@ public class UsuarioModel
 			avali += r.getString(3) + ": "+  r.getString(1) + ". Nota: "+ String.valueOf(nota) +"\n";
 		}
 		PreparedStatement st2;
-		st2 = connection.prepareStatement("select avg(nota) from avaliacoes join jogos on jogos.id = avaliacoes.jogo_id where jogos.id = ?");
+		st2 = connection.prepareStatement("select avg(nota) from avaliacoes where jogo_id = ?");
 		st2.setInt(1, idJ);
 		ResultSet r2 = st2.executeQuery();
 		r2.next();
