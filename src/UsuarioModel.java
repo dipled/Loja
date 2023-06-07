@@ -97,5 +97,13 @@ public class UsuarioModel
 		aval.setNota(notaMedia);
 		return aval;
 	}
-
+	static Jogo jogoMaisAntigo(Connection connection) throws SQLException
+	{
+		String sql = "select * from jogos where ano = (select min(ano) from jogos)";
+		Statement st = connection.createStatement();
+		ResultSet r = st.executeQuery(sql);
+		r.next();
+		Jogo retorno = new Jogo(r.getInt(1), r.getInt(2), r.getString(3), r.getString(4), r.getFloat(5),r.getInt(6));
+		return retorno;
+	}
 }

@@ -32,7 +32,8 @@ public class App {
                     System.out.println("Digite:\n0 para sair\t1 para listar os jogos do catalogo\n"
                             + "2 para listar os jogos de um desenvolvedor\t3 para comprar um jogo\n"
                             + "4 para mostrar sua biblioteca\t5 para escrever uma avaliacao\n"
-                            + "6 para mostrar todas as avaliacoes e a nota media de um jogo");
+                            + "6 para mostrar todas as avaliacoes e a nota media de um jogo\n"
+                            +"7 para mostrar o jogo mais antigo\n");
                     escolha = Integer.parseInt(in.nextLine());
                     switch (escolha) {
                         case 0:
@@ -74,6 +75,11 @@ public class App {
                             jg.listarJogos(connection);
                             System.out.println();
                             us.mostrarAvaliacoes(connection);
+                            System.out.println();
+                            break;
+                        case 7:
+                            System.out.println();
+                            us.maisAntigo(connection);
                             System.out.println();
                             break;
                         default:

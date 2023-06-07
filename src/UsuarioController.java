@@ -81,4 +81,9 @@ public class UsuarioController
         System.out.println("Nota media: "+String.valueOf(aval.getNota()));
         System.out.println();
     }
+    void maisAntigo(Connection connection) throws SQLException
+    {
+        Jogo jogo = UsuarioModel.jogoMaisAntigo(connection);
+        System.out.println(jogo.toString());
+    }
 }
