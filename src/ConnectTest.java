@@ -1,7 +1,7 @@
 import java.sql.*;
 import java.util.logging.*;
 public class ConnectTest {
-    
+    //
 
 	private Connection connection = null;
 	

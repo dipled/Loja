@@ -24,4 +24,4 @@ public class DesenvolvedorTest extends TestCase {
         String sql = "delete from avaliacoes; delete from biblioteca; delete from usuarios;delete from jogos; delete from desenvolvedores";
         statement.executeUpdate(sql);
     }
-}
+}//

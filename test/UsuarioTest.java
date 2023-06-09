@@ -31,7 +31,7 @@ public class UsuarioTest extends TestCase {
             DesenvolvedorModel.create(d2, connection);
             DesenvolvedorModel.create(d3, connection);
         } catch (SQLException e) {
-        }
+        }//
         ArrayList<Desenvolvedor> dvet = DesenvolvedorModel.listAll(connection);
         assertEquals(true, dvet.contains(d1)); // Garantiu que cadastramos o primeiro desenvolvedor
         assertEquals(true, dvet.contains(d2)); // Garantiu que cadastramos o segundo desenvolvedor
