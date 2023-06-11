@@ -65,6 +65,18 @@ public class Desenvolvedor
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Desenvolvedor other = (Desenvolvedor) obj;
+        return this.nome.equals(other.getNome()) && this.cnpj.equals(other.getCnpj());
+    }
 
     @Override
     public String toString() {
@@ -76,5 +88,6 @@ public class Desenvolvedor
             ", cnpj='" + getCnpj() + "'" +
             "}";
     }
+
 
 }

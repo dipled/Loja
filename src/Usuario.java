@@ -69,7 +69,7 @@ public class Usuario
             return false;
         }
         Usuario other = (Usuario) obj;
-        return this.email == other.email && Objects.equals(this.senha, other.senha);
+        return this.email.equals(other.getEmail());
     }
 
     @Override

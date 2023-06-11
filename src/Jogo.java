@@ -101,7 +101,7 @@ public class Jogo {
             return false;
         }
         Jogo other = (Jogo) obj;
-        return Objects.equals(this.titulo, other.titulo);
+        return this.titulo.equals(other.getTitulo()) && this.ano == other.getAno();
     }
 
     @Override
