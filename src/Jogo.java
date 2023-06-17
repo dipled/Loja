@@ -10,7 +10,7 @@ public class Jogo {
     private int ano;
     private String classificacaoEtaria;
     private String requisitosMinimos;
-    public ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
+    private ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
 
     public Jogo(int id, String titulo, String descricao, float preco, int ano, String classificacaoEtaria, String requisitosMinimos) {
         this.id = id;
@@ -114,7 +114,7 @@ public class Jogo {
             media += iterator.next().getNota();
         }
         
-        return media;
+        return media/this.avaliacoes.size();
     }
 
     @Override

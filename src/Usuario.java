@@ -7,11 +7,11 @@ public class Usuario {
     private String senha;
     private String telefone;
     private String endereco;
-    public ArrayList<Jogo> biblioteca = new ArrayList<Jogo>();
-    public ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
-    public ArrayList<Grupo> grupos = new ArrayList<Grupo>();
-    public ArrayList<Post> posts = new ArrayList<Post>();
-    public ArrayList<Usuario> amigos = new ArrayList<Usuario>();
+    private ArrayList<Jogo> biblioteca = new ArrayList<Jogo>();
+    private ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
+    private ArrayList<Grupo> grupos = new ArrayList<Grupo>();
+    private ArrayList<Post> posts = new ArrayList<Post>();
+    private ArrayList<Usuario> amigos = new ArrayList<Usuario>();
 
     public Usuario() {
     }

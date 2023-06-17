@@ -6,8 +6,8 @@ public class Grupo {
   private int id;
   private String nome;
   private String descricao;
-  public ArrayList<Usuario> participantes = new ArrayList<Usuario>();
-  public ArrayList<Post> posts = new ArrayList<Post>();
+  private ArrayList<Usuario> participantes = new ArrayList<Usuario>();
+  private ArrayList<Post> posts = new ArrayList<Post>();
 
   public Grupo(int id, String nome, String descricao) {
     this.id = id;

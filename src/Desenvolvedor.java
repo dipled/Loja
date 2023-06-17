@@ -6,7 +6,7 @@ public class Desenvolvedor {
     private String telefone;
     private String endereco;
     private String cnpj;
-    public ArrayList<Jogo> jogos = new ArrayList<Jogo>();
+    private ArrayList<Jogo> jogos = new ArrayList<Jogo>();
 
     public Desenvolvedor(int id, String nome, String telefone, String endereco, String cnpj) {
         this.id = id;
@@ -14,6 +14,14 @@ public class Desenvolvedor {
         this.telefone = telefone;
         this.endereco = endereco;
         this.cnpj = cnpj;
+    }
+
+    public ArrayList<Jogo> getJogos() {
+        return this.jogos;
+    }
+
+    public void setJogos(ArrayList<Jogo> jogos) {
+        this.jogos = jogos;
     }
 
     public Desenvolvedor(String nome, String telefone, String endereco, String cnpj) {
@@ -61,10 +69,6 @@ public class Desenvolvedor {
 
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
-    }
-
-    public void publicarJogo(Jogo jogo) {
-        this.jogos.add(jogo);
     }
 
     @Override
