@@ -29,4 +29,32 @@ public class Avaliacao {
     public void setNota(float nota) {
         this.nota = nota;
     }
+
+    public Usuario getAutor() {
+        return this.autor;
+    }
+
+    public void setAutor(Usuario autor) {
+        this.autor = autor;
+    }
+
+    public Jogo getJogoRelacionado() {
+        return this.jogoRelacionado;
+    }
+
+    public void setJogoRelacionado(Jogo jogoRelacionado) {
+        this.jogoRelacionado = jogoRelacionado;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Avaliacao other = (Avaliacao) obj;
+        return this.autor.equals(other.getAutor()) && this.jogoRelacionado.equals(other.getJogoRelacionado());
+    }
+    
 }

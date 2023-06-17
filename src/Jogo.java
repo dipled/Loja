@@ -9,7 +9,7 @@ public class Jogo {
     private float preco;
     private int ano;
     private String classificacaoEtaria;
-    private String requisitosMinimos; 
+    private String requisitosMinimos;
     public ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
 
     public Jogo(int id, String titulo, String descricao, float preco, int ano, String classificacaoEtaria, String requisitosMinimos) {
@@ -74,7 +74,29 @@ public class Jogo {
         this.preco = preco;
     }
 
-    
+    public String getClassificacaoEtaria() {
+        return this.classificacaoEtaria;
+    }
+
+    public void setClassificacaoEtaria(String classificacaoEtaria) {
+        this.classificacaoEtaria = classificacaoEtaria;
+    }
+
+    public String getRequisitosMinimos() {
+        return this.requisitosMinimos;
+    }
+
+    public void setRequisitosMinimos(String requisitosMinimos) {
+        this.requisitosMinimos = requisitosMinimos;
+    }
+
+    public ArrayList<Avaliacao> getAvaliacoes() {
+        return this.avaliacoes;
+    }
+
+    public void setAvaliacoes(ArrayList<Avaliacao> avaliacoes) {
+        this.avaliacoes = avaliacoes;
+    }    
 
     public boolean contemTermo(String titulo) {
         if (this.titulo.contains(titulo)) {
@@ -104,7 +126,7 @@ public class Jogo {
             return false;
         }
         Jogo other = (Jogo) obj;
-        return this.titulo.equals(other.getTitulo()) && this.ano == other.getAno();
+        return this.titulo.equals(other.getTitulo());
     }
 
     @Override
@@ -118,4 +140,11 @@ public class Jogo {
             "}";
     }
 
+    public boolean fazerAvaliacao(Avaliacao avaliacao) {
+         if (!this.avaliacoes.contains(avaliacao)) {
+            this.avaliacoes.add(avaliacao);
+            return true;
+        }
+        return false;
+    }
 }

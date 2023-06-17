@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
-public class Desenvolvedor 
-{
+public class Desenvolvedor {
     private int id;
     private String nome;
     private String telefone;
@@ -9,8 +8,7 @@ public class Desenvolvedor
     private String cnpj;
     public ArrayList<Jogo> jogos = new ArrayList<Jogo>();
 
-    public Desenvolvedor(int id, String nome, String telefone, String endereco, String cnpj)
-    {
+    public Desenvolvedor(int id, String nome, String telefone, String endereco, String cnpj) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
@@ -18,8 +16,7 @@ public class Desenvolvedor
         this.cnpj = cnpj;
     }
 
-    public Desenvolvedor(String nome, String telefone, String endereco, String cnpj)
-    {
+    public Desenvolvedor(String nome, String telefone, String endereco, String cnpj) {
         this.nome = nome;
         this.telefone = telefone;
         this.endereco = endereco;
@@ -69,7 +66,7 @@ public class Desenvolvedor
     public void publicarJogo(Jogo jogo) {
         this.jogos.add(jogo);
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -85,11 +82,19 @@ public class Desenvolvedor
     @Override
     public String toString() {
         return "{" +
-            " id='" + getId() + "'" +
-            ", nome='" + getNome() + "'" +
-            ", telefone='" + getTelefone() + "'" +
-            ", endereco='" + getEndereco() + "'" +
-            ", cnpj='" + getCnpj() + "'" +
-            "}";
+                " id='" + getId() + "'" +
+                ", nome='" + getNome() + "'" +
+                ", telefone='" + getTelefone() + "'" +
+                ", endereco='" + getEndereco() + "'" +
+                ", cnpj='" + getCnpj() + "'" +
+                "}";
+    }
+
+    public boolean postarJogo(Jogo jogo) {
+        if (!this.jogos.contains(jogo)) {
+            this.jogos.add(jogo);
+            return true;
+        }
+        return false;
     }
 }
