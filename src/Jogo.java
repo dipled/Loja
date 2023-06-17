@@ -1,29 +1,28 @@
-import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+import java.util.Iterator;
 
 public class Jogo {
     private int id;
-    private int desenvolvedor;
     private String titulo;
     private String descricao;
     private float preco;
     private int ano;
+    private String classificacaoEtaria;
+    private String requisitosMinimos; 
+    public ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
 
-    public Jogo(int id, int desenvolvedor, String titulo, String descricao, float preco, 
-            int ano) {
+    public Jogo(int id, String titulo, String descricao, float preco, int ano, String classificacaoEtaria, String requisitosMinimos) {
         this.id = id;
-        this.desenvolvedor = desenvolvedor;
         this.titulo = titulo;
         this.descricao = descricao;
         this.preco = preco;
-    
         this.ano = ano;
+        this.classificacaoEtaria = classificacaoEtaria;
+        this.requisitosMinimos = requisitosMinimos;
     }
 
-    public Jogo(int desenvolvedor, String titulo, String descricao, float preco, int ano) {
-        this.desenvolvedor = desenvolvedor;
+    public Jogo(String titulo, String descricao, float preco, int ano) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.preco = preco;
@@ -75,14 +74,7 @@ public class Jogo {
         this.preco = preco;
     }
 
-    public int getDesenvolvedor() {
-        return this.desenvolvedor;
-    }
-
-    public void setDesenvolvedor(int desenvolvedor) {
-        this.desenvolvedor = desenvolvedor;
-    }
-
+    
 
     public boolean contemTermo(String titulo) {
         if (this.titulo.contains(titulo)) {
@@ -90,6 +82,17 @@ public class Jogo {
         } else {
             return false;
         }
+    }
+
+    public float calculaMediaAvaliacoes() {
+        Iterator<Avaliacao> iterator = avaliacoes.iterator();
+        float media = 0;
+
+        while(iterator.hasNext()) {
+            media += iterator.next().getNota();
+        }
+        
+        return media;
     }
 
     @Override
@@ -108,7 +111,6 @@ public class Jogo {
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", desenvolvedor='" + getDesenvolvedor() + "'" +
             ", titulo='" + getTitulo() + "'" +
             ", descricao='" + getDescricao() + "'" +
             ", preco='" + getPreco() + "'" +

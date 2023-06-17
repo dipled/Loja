@@ -17,13 +17,11 @@ public class App {
 
     public static void usr() throws SQLException, ParseException, ClassNotFoundException {
         Usuario u = new Usuario();
-        Connection connection = new Connect().getConnection();
         int escolha = -1;
         JogoController jg = new JogoController();
         DesenvolvedorController dv = new DesenvolvedorController();
         UsuarioController us = new UsuarioController();
         while (true) {
-            u = us.login(connection);
             if (u == null)
                 {System.out.println("Erro ao fazer login");
                 System.out.println();}

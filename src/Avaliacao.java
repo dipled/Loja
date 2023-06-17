@@ -1,18 +1,25 @@
 public class Avaliacao {
-    private String avaliacoes;
+    private String texto;
     private float nota;
-//
-    public Avaliacao(String avaliacoes, float nota) {
-        this.avaliacoes = avaliacoes;
+    private Usuario autor;
+    private Jogo jogoRelacionado;
+
+    public Avaliacao() {
+    }
+
+    public Avaliacao(String texto, float nota, Usuario autor, Jogo jogoRelacionado) {
+        this.texto = texto;
         this.nota = nota;
+        this.autor = autor;
+        this.jogoRelacionado = jogoRelacionado;
     }
 
-    public String getAvaliacoes() {
-        return this.avaliacoes;
+    public String getTexto() {
+        return this.texto;
     }
 
-    public void setAvaliacoes(String avaliacoes) {
-        this.avaliacoes = avaliacoes;
+    public void setTexto(String texto) {
+        this.texto = texto;
     }
 
     public float getNota() {
@@ -22,8 +29,4 @@ public class Avaliacao {
     public void setNota(float nota) {
         this.nota = nota;
     }
-
-    public Avaliacao() {
-    }
-
 }

@@ -1,5 +1,4 @@
- 
-
+import java.util.ArrayList;
 
 public class Desenvolvedor 
 {
@@ -8,6 +7,7 @@ public class Desenvolvedor
     private String telefone;
     private String endereco;
     private String cnpj;
+    public ArrayList<Jogo> jogos = new ArrayList<Jogo>();
 
     public Desenvolvedor(int id, String nome, String telefone, String endereco, String cnpj)
     {
@@ -26,14 +26,14 @@ public class Desenvolvedor
         this.cnpj = cnpj;
     }
 
-    public int getId()
-    {
+    public int getId() {
         return this.id;
     }
-    public void setId(int id)
-    {
+
+    public void setId(int id) {
         this.id = id;
     }
+
     public String getNome() {
         return this.nome;
     }
@@ -65,6 +65,10 @@ public class Desenvolvedor
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
+
+    public void publicarJogo(Jogo jogo) {
+        this.jogos.add(jogo);
+    }
     
     @Override
     public boolean equals(Object obj) {
@@ -88,6 +92,4 @@ public class Desenvolvedor
             ", cnpj='" + getCnpj() + "'" +
             "}";
     }
-
-
 }
