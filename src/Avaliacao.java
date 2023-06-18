@@ -45,6 +45,7 @@ public class Avaliacao {
     public void setJogoRelacionado(Jogo jogoRelacionado) {
         this.jogoRelacionado = jogoRelacionado;
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -56,5 +57,5 @@ public class Avaliacao {
         Avaliacao other = (Avaliacao) obj;
         return this.autor.equals(other.getAutor()) && this.jogoRelacionado.equals(other.getJogoRelacionado());
     }
-    
+
 }

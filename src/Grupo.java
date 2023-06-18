@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Grupo {
 
@@ -73,14 +72,14 @@ public class Grupo {
   }
 
   @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Grupo)) {
-            return false;
-        }
-        Grupo grupo = (Grupo) o;
-        return this.nome.equals(grupo.getNome());
+  public boolean equals(Object o) {
+    if (o == this)
+      return true;
+    if (!(o instanceof Grupo)) {
+      return false;
+    }
+    Grupo grupo = (Grupo) o;
+    return this.nome.equals(grupo.getNome());
   }
-  
+
 }

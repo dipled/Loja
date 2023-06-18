@@ -15,6 +15,7 @@ public class UsuarioTest extends TestCase {
         assertTrue(primeiraCompra);
         assertFalse(compraRepetida);
     }
+
     @Test
     public void testFazerAmizade() {
         Usuario u1 = new Usuario(1, "cleber", "cleber@gmail.com", "123", "123456", "rua udesc, 103");
@@ -28,6 +29,7 @@ public class UsuarioTest extends TestCase {
         assertTrue(pedidoAceito);
         assertFalse(pedidoRepetido);
     }
+
     @Test
     public void testFazerAvaliacao() {
         Jogo game = new Jogo(1, "far cry 4", "jogo de aventura e sobrevivência", 129, 2014, "14 anos", "4GB de RAM");
@@ -40,8 +42,9 @@ public class UsuarioTest extends TestCase {
         assertTrue(avaliacaoCerta);
         assertFalse(avaliacaoRepetida);
     }
+
     @Test
-    public void fazerPost() {
+    public void testFazerPost() {
         Grupo grupo = new Grupo("os palhaços da noite", "aqui só entra os joker maluco!");
         Usuario user = new Usuario(1, "cleber", "cleber@gmail.com", "123", "123456", "rua udesc, 103");
         Post post = new Post(1, "Eu amo jogar no PC!", "Jogar no computador me traz uma paz única. s2", grupo);
@@ -49,8 +52,9 @@ public class UsuarioTest extends TestCase {
         user.fazerPost(post);
         assertTrue(user.getPosts().contains(post));
     }
+
     @Test
-    public void testAdicionarUsuario() {
+    public void testParticiparGrupo() {
         Grupo grupo = new Grupo("Doidos", "Chino, Dip, Fefe");
         Usuario dip = new Usuario("Dip", "pe@gmail", "123", "999", "Rua La Ele Da Silva");
         dip.participarGrupo(grupo);

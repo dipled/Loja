@@ -12,7 +12,8 @@ public class Jogo {
     private String requisitosMinimos;
     private ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
 
-    public Jogo(int id, String titulo, String descricao, float preco, int ano, String classificacaoEtaria, String requisitosMinimos) {
+    public Jogo(int id, String titulo, String descricao, float preco, int ano, String classificacaoEtaria,
+            String requisitosMinimos) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -26,7 +27,7 @@ public class Jogo {
         this.titulo = titulo;
         this.descricao = descricao;
         this.preco = preco;
-    
+
         this.ano = ano;
     }
 
@@ -96,7 +97,7 @@ public class Jogo {
 
     public void setAvaliacoes(ArrayList<Avaliacao> avaliacoes) {
         this.avaliacoes = avaliacoes;
-    }    
+    }
 
     public boolean contemTermo(String titulo) {
         if (this.titulo.contains(titulo)) {
@@ -110,11 +111,11 @@ public class Jogo {
         Iterator<Avaliacao> iterator = avaliacoes.iterator();
         float media = 0;
 
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             media += iterator.next().getNota();
         }
-        
-        return media/this.avaliacoes.size();
+
+        return media / this.avaliacoes.size();
     }
 
     @Override
@@ -132,16 +133,16 @@ public class Jogo {
     @Override
     public String toString() {
         return "{" +
-            " id='" + getId() + "'" +
-            ", titulo='" + getTitulo() + "'" +
-            ", descricao='" + getDescricao() + "'" +
-            ", preco='" + getPreco() + "'" +
-            ", ano='" + getAno() + "'" +
-            "}";
+                " id='" + getId() + "'" +
+                ", titulo='" + getTitulo() + "'" +
+                ", descricao='" + getDescricao() + "'" +
+                ", preco='" + getPreco() + "'" +
+                ", ano='" + getAno() + "'" +
+                "}";
     }
 
     public boolean fazerAvaliacao(Avaliacao avaliacao) {
-         if (!this.avaliacoes.contains(avaliacao)) {
+        if (!this.avaliacoes.contains(avaliacao)) {
             this.avaliacoes.add(avaliacao);
             return true;
         }

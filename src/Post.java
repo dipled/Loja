@@ -1,5 +1,5 @@
 public class Post {
-  
+
   private int id;
   private String titulo;
   private String descricao;
@@ -44,13 +44,12 @@ public class Post {
     this.descricao = descricao;
   }
 
-
   @Override
   public String toString() {
-      return "{" +
-          " id='" + getId() + "'" +
-          ", titulo='" + getTitulo() + "'" +
-          ", descricao='" + getDescricao() + "'" +
-          "}";
+    return "{" +
+        " id='" + getId() + "'" +
+        ", titulo='" + getTitulo() + "'" +
+        ", descricao='" + getDescricao() + "'" +
+        "}";
   }
 }

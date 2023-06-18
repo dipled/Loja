@@ -155,8 +155,7 @@ public class Usuario {
     }
 
     public boolean adicionarAmigo(Usuario usuario) {
-        if(!this.amigos.contains(usuario))
-        {
+        if (!this.amigos.contains(usuario)) {
             this.amigos.add(usuario);
             usuario.getAmigos().add(this);
             return true;
@@ -177,8 +176,7 @@ public class Usuario {
     }
 
     public boolean participarGrupo(Grupo grupo) {
-        if(!this.grupos.contains(grupo))
-        {
+        if (!this.grupos.contains(grupo)) {
             this.grupos.add(grupo);
             return true;
         }
