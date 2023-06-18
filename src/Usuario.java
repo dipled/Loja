@@ -177,7 +177,7 @@ public class Usuario {
     }
 
     public boolean participarGrupo(Grupo grupo) {
-        if(this.grupos.contains(grupo))
+        if(!this.grupos.contains(grupo))
         {
             this.grupos.add(grupo);
             return true;

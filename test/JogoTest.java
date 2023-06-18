@@ -1,6 +1,9 @@
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 public class JogoTest extends TestCase{
+    @Test
     public void testFazerAvaliacao()
     {
         Jogo game = new Jogo(1, "far cry 4", "jogo de aventura e sobrevivência", 129, 2014, "14 anos", "4GB de RAM");
@@ -13,7 +16,7 @@ public class JogoTest extends TestCase{
         assertTrue(avaliacaoCerta);
         assertFalse(avaliacaoRepetida);
     }
-
+    @Test
     public void testCalculaMediaAvaliacoes()
     {
         Jogo game = new Jogo(1, "far cry 4", "jogo de aventura e sobrevivência", 129, 2014, "14 anos", "4GB de RAM");

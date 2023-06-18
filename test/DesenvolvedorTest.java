@@ -1,7 +1,10 @@
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 public class DesenvolvedorTest extends TestCase {
 
+    @Test
     public void testPublicarJogo()
     {
         Jogo jogo = new Jogo(1, "far cry 4", "jogo de aventura e sobrevivência", 129, 2014, "14 anos", "4GB de RAM");
